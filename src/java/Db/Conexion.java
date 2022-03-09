@@ -2,7 +2,7 @@
 Autor: Ivan Guadalupe Bustamante Cortés
 Fecha creación: 08/03/2022
 Fecha actualización: 09/03/2022
-Descripción: Clase para realizar conexion a una base de datos
+Descripción: Clase para realizar conexion a una base de datos y su main
  */
 package Db;
 
