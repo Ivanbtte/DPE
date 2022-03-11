@@ -17,16 +17,16 @@ public class Conexion {
     private final String pwd;
   
 
-    public Conexion( String url, String user, String pwd) {
-        this.url = url;
-        this.user = user;
-        this.pwd = pwd;
+    public Conexion() {
+        this.url = "jdbc:postgresql://localhost/";
+        this.user = "postgres";
+        this.pwd = "87691520";
     }
 
     public Connection conecta() {
         try {
             Class.forName("org.postgresql.Driver");
-            connection = DriverManager.getConnection("jdbc:postgresql://"+url+"/", user, pwd);
+            connection = DriverManager.getConnection(url, user, pwd);
             System.out.println("Conexion exitosa");
 
         } catch (Exception ex) {
@@ -47,10 +47,10 @@ public class Conexion {
     public Connection getConnection() {
         return connection;
     }
-
+    
     public static void main(String[] args) {
         
-        Conexion c= new Conexion("localhost", "postgres", "87691520");
+        Conexion c= new Conexion();
         c.conecta();
         c.desconectar();
     }
