@@ -1,7 +1,7 @@
 /*
 Autor: Ivan Guadalupe Bustamante Cortés
 Fecha creación: 11/03/2022
-Fecha actualización: 11/03/2022
+Fecha actualización: 14/03/2022
 Descripción: Clase Implementadora de Usuario
 */
 
@@ -22,7 +22,14 @@ public class UsuarioModelImpl implements IUsuarioModel {
          conexion= new Conexion();
          conexion.conecta();
          connection= conexion.getConnection();
-         String sql = "Insert into Usuario"
+         String sql = "Insert into Usuarios (nombre_usuario, contraseña, nombre, sexo, edad) values(?, ?, ?, ?, ?);";
+         Statement s= connection.createStatement();
+         PreparedStatement ps= connection.prepareStatement(sql);
+         ps.setString(1, usuario.getNombre_Usuario());
+         ps.setString(2, usuario.getContraseña());
+         ps.setString(3, usuario.getNombre());
+         ps.setString(4, usuario.getSexo());
+         ps.setString(5, ""+usuario.getEdad());
         }
         catch(Exception ex){
             

@@ -47,6 +47,16 @@ public class Conexion {
     public Connection getConnection() {
         return connection;
     }
+    public void Insertar(String Nombre, String Apellido, String Matricula, String ID, String sql){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Statement s= connection.createStatement();
+
+            }
+        catch (Exception ex){
+                System.out.println(ex);
+        }
+    }
     
     public static void main(String[] args) {
         
