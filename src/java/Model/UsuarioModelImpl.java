@@ -44,7 +44,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             conexion = new Conexion();
             conexion.conecta();
             connection = conexion.getConnection();
-            String sql = "Update usuarios set nombre_usuario=?, contraseña=?, nombre=?, sexo=?, edad=? where codigo="+usuario.getCodigo()+";";
+            String sql = "Update usuarios set nombre_usuario=?, contraseña=?, nombre=?, sexo=?, edad=? where codigo=" + usuario.getCodigo() + ";";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, usuario.getNombre_Usuario());
             ps.setString(2, usuario.getContraseña());
@@ -65,7 +65,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             conexion = new Conexion();
             conexion.conecta();
             connection = conexion.getConnection();
-            String sql = "delete from usuarios where codigo="+idUsuario+";";
+            String sql = "delete from usuarios where codigo=" + idUsuario + ";";
             Statement s = connection.createStatement();
             int rs = s.executeUpdate(sql);
             System.out.println("Correcto");
@@ -80,40 +80,49 @@ public class UsuarioModelImpl implements IUsuarioModel {
     public List<Usuario> obtenerRegistros() {
         Usuario u = new Usuario();
         List<Usuario> lista = new ArrayList<Usuario>();
-        try{
-          conexion = new Conexion();
-          conexion.conecta();
-          connection = conexion.getConnection();
-          Statement s = connection.createStatement(); 
-           ResultSet rs= s.executeQuery("SELECT * FROM usuarios;");
-           
-           while (rs.next()){
-               u = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
-               lista.add(u);
-               }
-           conexion.desconectar();
-         }catch(Exception e){
-           System.out.println(e.getMessage());
-       }
+        try {
+            conexion = new Conexion();
+            conexion.conecta();
+            connection = conexion.getConnection();
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM usuarios;");
+
+            while (rs.next()) {
+                u.setCodigo(rs.getString("codigo"));
+                u.setNombre_Usuario(rs.getString("nombre_usuario"));
+                u.setContraseña(rs.getString("contraseña"));
+                u.setNombre(rs.getString("nombre"));
+                u.setSexo(rs.getString("sexo"));
+                u.setEdad(rs.getInt("edad"));
+                lista.add(u);
+            }
+            conexion.desconectar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         return lista;
     }
 
     @Override
     public Usuario obtenerRegistro(int idUsuario) {
         Usuario u = new Usuario();
-        try{
-          conexion = new Conexion();
-          conexion.conecta();
-          connection = conexion.getConnection();
-          Statement s = connection.createStatement(); 
-           ResultSet rs= s.executeQuery("SELECT FROM usuarios where codigo="+idUsuario+";");
-           
-           while (rs.next()){
-               u = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
-               }
-         }catch(Exception e){
-           System.out.println(e.getMessage());
-       }
+        try {
+            conexion = new Conexion();
+            conexion.conecta();
+            connection = conexion.getConnection();
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM usuarios where codigo=" + idUsuario + ";");
+            while (rs.next()) {
+                u.setCodigo(rs.getString("codigo"));
+                u.setNombre_Usuario(rs.getString("nombre_usuario"));
+                u.setContraseña(rs.getString("contraseña"));
+                u.setNombre(rs.getString("nombre"));
+                u.setSexo(rs.getString("sexo"));
+                u.setEdad(rs.getInt("edad"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         return u;
     }
 
@@ -127,7 +136,8 @@ public class UsuarioModelImpl implements IUsuarioModel {
         u.setSexo("Masculino");
         UsuarioModelImpl m = new UsuarioModelImpl();
         //m.crearRegistro(u);
-        System.out.println(m.obtenerRegistro(1));
-        
+        u = m.obtenerRegistro(1);
+        System.out.println(u.getCodigo());
+
     }
 }
