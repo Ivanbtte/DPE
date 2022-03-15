@@ -31,6 +31,9 @@ public class Usuario extends Persona {
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
     }
+    
+    
+   
 
     public String getCodigo() {
         return codigo;
