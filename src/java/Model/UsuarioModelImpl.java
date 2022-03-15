@@ -78,28 +78,43 @@ public class UsuarioModelImpl implements IUsuarioModel {
 
     @Override
     public List<Usuario> obtenerRegistros() {
-        Object[] ob1 = new Object[6];
+        Usuario u = new Usuario();
+        List<Usuario> lista = new ArrayList<Usuario>();
         try{
+          conexion = new Conexion();
+          conexion.conecta();
+          connection = conexion.getConnection();
           Statement s = connection.createStatement(); 
            ResultSet rs= s.executeQuery("SELECT * FROM usuarios;");
            
            while (rs.next()){
-               ob1[0] = rs.getString(1);
-               ob1[1] = rs.getString(2);
-               ob1[2] = rs.getString(3);
-               ob1[3] = rs.getString(4);
-               ob1[4] = rs.getString(5);
-               ob1[5] = rs.getString(6);
+               u = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+               lista.add(u);
                }
+           conexion.desconectar();
          }catch(Exception e){
            System.out.println(e.getMessage());
        }
-        return null;
+        return lista;
     }
 
     @Override
     public Usuario obtenerRegistro(int idUsuario) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Usuario u = new Usuario();
+        try{
+          conexion = new Conexion();
+          conexion.conecta();
+          connection = conexion.getConnection();
+          Statement s = connection.createStatement(); 
+           ResultSet rs= s.executeQuery("SELECT FROM usuarios where codigo="+idUsuario+";");
+           
+           while (rs.next()){
+               u = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+               }
+         }catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+        return u;
     }
 
     public static void main(String[] args) {
@@ -111,8 +126,8 @@ public class UsuarioModelImpl implements IUsuarioModel {
         u.setNombre_Usuario("wos");
         u.setSexo("Masculino");
         UsuarioModelImpl m = new UsuarioModelImpl();
-        m.crearRegistro(u);
-        
+        //m.crearRegistro(u);
+        System.out.println(m.obtenerRegistro(1));
         
     }
 }
