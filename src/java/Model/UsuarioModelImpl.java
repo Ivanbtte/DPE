@@ -9,6 +9,7 @@ package Model;
 import Db.Conexion;
 import Entity.Usuario;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsuarioModelImpl implements IUsuarioModel {
@@ -60,12 +61,40 @@ public class UsuarioModelImpl implements IUsuarioModel {
 
     @Override
     public void eliminarRegistro(int idUsuario) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        try {
+            conexion = new Conexion();
+            conexion.conecta();
+            connection = conexion.getConnection();
+            String sql = "delete from usuarios where codigo="+idUsuario+";";
+            Statement s = connection.createStatement();
+            int rs = s.executeUpdate(sql);
+            System.out.println("Correcto");
+            conexion.desconectar();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
     @Override
     public List<Usuario> obtenerRegistros() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Object[] ob1 = new Object[6];
+        try{
+          Statement s = connection.createStatement(); 
+           ResultSet rs= s.executeQuery("SELECT * FROM usuarios;");
+           
+           while (rs.next()){
+               ob1[0] = rs.getString(1);
+               ob1[1] = rs.getString(2);
+               ob1[2] = rs.getString(3);
+               ob1[3] = rs.getString(4);
+               ob1[4] = rs.getString(5);
+               ob1[5] = rs.getString(6);
+               }
+         }catch(Exception e){
+           System.out.println(e.getMessage());
+       }
+        return null;
     }
 
     @Override
