@@ -78,7 +78,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
 
     @Override
     public List<Usuario> obtenerRegistros() {
-        Usuario u = new Usuario();
+        Usuario u;
         List<Usuario> lista = new ArrayList<Usuario>();
         try {
             conexion = new Conexion();
@@ -88,6 +88,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
             ResultSet rs = s.executeQuery("SELECT * FROM usuarios;");
 
             while (rs.next()) {
+                u = new Usuario();
                 u.setCodigo(rs.getString("codigo"));
                 u.setNombre_Usuario(rs.getString("nombre_usuario"));
                 u.setContraseña(rs.getString("contraseña"));
