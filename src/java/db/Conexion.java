@@ -46,47 +46,8 @@ public class Conexion {
     }
 
     public Connection getConection() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return connection;
     }
 
-    public Connection getConnection() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
 }
-
-//     public Connection desconectar(){
-//               
-//               return conection;
-//             }  
-//        
-//            public Connection getConection() {
-//                
-//                return conection;
-//            }
-//           
-//            public static void main(String[] args) {
-//                String bd ="dpe";
-//                Conexion c =new Conexion();
-//                c.Conectar();
-//                c.conectaBase(bd);
-//            }
-//   
-//   
-//    public Conexion() {
-//    }
-//
-//    public Connection getConector() {
-//        return connection;
-//    }
-//
-//    public Connection getDesconectar() {
-//        return connection;
-//    }
-//
-//    public Connection getConnection() {
-//        return connection;
-//    }
-//
-//    public void setConnection(Connection connection) {
-//        this.connection = connection;
-//        

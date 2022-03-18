@@ -34,12 +34,11 @@ public class UsuarioModelImpl implements IUsuarioModel {
             connection = conexion.getConection();
             String sql = "Insert into Usuarios (nombre_usuario,contraseña,nombre,sexo,edad)VALUES (?,?,?,?,?)";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, usuario.getCodigo());
-            ps.setString(2, usuario.getNombreUsuario());
-            ps.setString(3, usuario.getContraseña());
-            ps.setString(4, usuario.getNombre());
-            ps.setString(5, usuario.getSexo());
-            ps.setInt(6, usuario.getEdad());
+            ps.setString(1, usuario.getNombreUsuario());
+            ps.setString(2, usuario.getContraseña());
+            ps.setString(3, usuario.getNombre());
+            ps.setString(4, usuario.getSexo());
+            ps.setInt(5, usuario.getEdad());
             ps.executeUpdate();
             System.out.println("Correcto");
             conexion.desconectar();
@@ -48,11 +47,12 @@ public class UsuarioModelImpl implements IUsuarioModel {
         }
     }
 
+    @Override
     public void actualizarRegistro(Usuario usuario) {
         try {
             conexion = new Conexion();
             conexion.Conecta();
-            connection = conexion.getConnection();
+            connection = conexion.getConection();
             String sql = "Update usuarios set nombre_usuario=?, contraseña=?, nombre=?, sexo=?, edad=? where codigo=" + usuario.getCodigo() + ";";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, usuario.getNombreUsuario());
@@ -73,7 +73,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         try {
             conexion = new Conexion();
             conexion.Conecta();
-            connection = conexion.getConnection();
+            connection = conexion.getConection();
             String sql = "Delete from usuarios where codigo=" + idUsuario + ";";
             Statement s = connection.createStatement();
             int rs = s.executeUpdate(sql);
@@ -88,37 +88,60 @@ public class UsuarioModelImpl implements IUsuarioModel {
 
     @Override
     public List<Usuario> obtenerRegistros() {
-        List<Usuario> listaUsuario = null;
+        Usuario u = new Usuario();
+        List<Usuario> lista = new ArrayList<Usuario>();
         try {
-            ResultSet resulSet;
-            listaUsuario = new ArrayList<>();
             conexion = new Conexion();
             conexion.Conecta();
-            connection = conexion.getConnection();
-            String sql = "SELECT * FROM usuarios";
-            try ( PreparedStatement statement = connection.prepareStatement(sql)) {
-                resulSet = statement.executeQuery();
+            connection = conexion.getConection();
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM usuarios;");
 
+            while (rs.next()) {
+                u.setCodigo(rs.getString("codigo"));
+                u.setNombreUsuario(rs.getString("nombre_usuario"));
+                u.setContraseña(rs.getString("contraseña"));
+                u.setNombre(rs.getString("nombre"));
+                u.setSexo(rs.getString("sexo"));
+                u.setEdad(rs.getInt("edad"));
+                lista.add(u);
             }
-
-        } catch (SQLException e) {
+            conexion.desconectar();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-        throw new UnsupportedOperationException("Not supported yet.");
+        return lista;
     }
 
     @Override
     public Usuario obtenerRegistro(int idUsuario) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Usuario u = new Usuario();
+        try {
+            conexion = new Conexion();
+            conexion.Conecta();
+            connection = conexion.getConection();
+            Statement s = connection.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM usuarios where codigo=" + idUsuario + ";");
+            while (rs.next()) {
+                u.setCodigo(rs.getString("codigo"));
+                u.setNombreUsuario(rs.getString("nombre_usuario"));
+                u.setContraseña(rs.getString("contraseña"));
+                u.setNombre(rs.getString("nombre"));
+                u.setSexo(rs.getString("sexo"));
+                u.setEdad(rs.getInt("edad"));
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return u;
     }
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args){
         Usuario u = new Usuario();
-        u.setCodigo("2");
+        u.setCodigo("1");
         u.setContraseña("124563");
         u.setNombreUsuario("ramirorr");
-        u.setNombre("ramiro");
+        u.setNombre("ivan");
         u.setEdad(21);
         u.setSexo("Masculino");
         UsuarioModelImpl m = new UsuarioModelImpl();
@@ -127,24 +150,4 @@ public class UsuarioModelImpl implements IUsuarioModel {
     }
 
 }
-
-//    @Override
-//    public void actualizarRegistro(Usuario usuario) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    @Override
-//    public List<Usuario> obtenerRegistros() {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    @Override
-//    public Usuario obtenerRegistro(int idUsuario) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//    }
-//
-//    @Override
-//    public void eliminarRegistro(int idUsuario) {
-//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//        }
-
+        
