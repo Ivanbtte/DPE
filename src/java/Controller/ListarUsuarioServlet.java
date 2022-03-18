@@ -53,7 +53,8 @@ public class ListarUsuarioServlet extends HttpServlet {
             out.println("<td>"+usuario.getNombre_Usuario()+"</td>");
             out.println("<td>"+usuario.getEdad()+"</td>");
             out.println("<td>"+usuario.getSexo()+"</td>");
-            out.println("</tr>");
+            out.println("<td><a href=''>Editar</a></td>");
+            out.println("<td><a href='EliminarUsuarioServlet?idUsuario="+usuario.getCodigo()+"'>Eliminar</a></td>");
         }
         out.println("</tbody>");
         out.println("</table>");
