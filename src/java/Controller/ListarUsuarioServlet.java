@@ -53,8 +53,23 @@ public class ListarUsuarioServlet extends HttpServlet {
             out.println("<td>"+usuario.getNombre_Usuario()+"</td>");
             out.println("<td>"+usuario.getEdad()+"</td>");
             out.println("<td>"+usuario.getSexo()+"</td>");
-            out.println("<td><a href=''>Editar</a></td>");
-            out.println("<td><a href='EliminarUsuarioServlet?idUsuario="+usuario.getCodigo()+"'>Eliminar</a></td>");
+            out.println("<td><a href='EditarUsuarioServlet?idUsuario="+usuario.getCodigo()+"'>Editar</a></td>");
+            //out.println("<td><a href=''>Editar</a></td>");
+            //out.println("<td><a href='EliminarUsuarioServlet?idUsuario="+usuario.getCodigo()+"'>Eliminar</a></td>");
+            out.println("<td><button onclick=\"myFunction()\">Eliminar</button></td>");
+            out.println("<p id=\"demo\"></p>\n"
+                    + "\n"
+                    + "<script>\n"
+                    + "function myFunction() {\n"
+                    + "  let text;\n"
+                    + "  if (confirm('¿Desea eliminar?') == true) {\n"
+                    + "    window.location.href='EliminarUsuarioServlet?idUsuario=" + usuario.getCodigo() + "'"
+                    + "  } else {\n"
+                    + "    text = 'Cancelar';\n"
+                    + "  }\n"
+                    + "  document.getElementById(\"demo\").innerHTML = text;\n"
+                    + "}\n"
+                    + "</script>");
         }
         out.println("</tbody>");
         out.println("</table>");

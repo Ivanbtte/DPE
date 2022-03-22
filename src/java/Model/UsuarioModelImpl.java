@@ -136,7 +136,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         u.setNombre_Usuario("wos");
         u.setSexo("Masculino");
         UsuarioModelImpl m = new UsuarioModelImpl();
-        //m.crearRegistro(u);
+        m.crearRegistro(u);
         u = m.obtenerRegistro(1);
         System.out.println(u.getCodigo());
 

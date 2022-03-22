@@ -8,3 +8,7 @@ table tr:hover{
     background-color: lightblue;
     cursor: pointer;
 }
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}
