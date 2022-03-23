@@ -28,6 +28,12 @@ public class EditarUsuarioServlet extends HttpServlet {
         IUsuarioService service = new UsuarioServiceImpl();
         Usuario usuario = new Usuario();
         usuario = service.obtenerRegistro(idUsuario);
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<link rel='stylesheet' href='"+request.getContextPath()+"/Resources/css/Style.css'");
+        out.println("</head>");
+        out.println("<body>");
         out.println("<form action='GuardarEditarUsuarioServlet' method='GET'>");
         out.println("<input type='hidden' name='idUsuario' value='"+usuario.getCodigo()+"'><br>");
         out.println("<label>Nombre:</label>");
@@ -40,7 +46,10 @@ public class EditarUsuarioServlet extends HttpServlet {
         out.println("<input type='text' name='edad' value='"+usuario.getEdad()+"'><br>");
         out.println("<label>Sexo:</label>");
         out.println("<input type='text' name='sexo' value='"+usuario.getSexo()+"'><br>");
-         out.println("</form>");
+        out.println("<input type=\"submit\" value='Guardar'>");
+        out.println("</form>");
+        out.println("</body>");
+        out.println("</html>");
         
     }
 }
