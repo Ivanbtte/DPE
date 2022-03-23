@@ -4,13 +4,35 @@ Fecha creación: 17/03/2022
 Fecha actualización: 17/03/2022
 Descripción: Pagina para crear registro
 -->
+<!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='../Resources/css/StyleForm.css'>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Zen+Dots&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div>TODO write content</div>
+        <section class="forma">
+            <h1 class=titulo>Registrar usuario</h1>
+            <form action='../GuardarCrearUsuarioServlet' method='POST'>
+                <fieldset>
+                    <input type='hidden' name='idUsuario' value=''><br>
+                    <label>Nombre:</label><br>
+                    <input type='text' name='nombre' value=''><br>
+                    <label>Nombre de usuario:</label><br>
+                    <input type='text' name='usuario' value=''><br>
+                    <label>Contraseña:</label><br>
+                    <input type='text' name='contraseña' value=''><br>
+                    <label>Edad:</label><br>
+                    <input type='text' name='edad' value=''><br>
+                    <label>Sexo:</label><br>
+                    <input type="radio" id="hombre" name="sexo"         value="Hombre">
+                    <label for="sexo">Hombre</label><br>
+                    <input type="radio" id="mujer" name="sexo"         value="Mujer">
+                    <label for="Clan">Mujer</label><br>
+                </fieldset>
+                <input type="submit" value='Guardar'>
+            </form>
+        </section>
     </body>
 </html>
