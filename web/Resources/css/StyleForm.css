@@ -25,3 +25,21 @@ form{
   font-family: 'Open Sans', sans-serif;
   font-size: 1vw;
 }
+table tr:hover{
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+table{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+th, td {
+  text-align: left;
+  padding: 16px;
+}

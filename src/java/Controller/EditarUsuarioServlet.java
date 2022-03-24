@@ -31,6 +31,7 @@ public class EditarUsuarioServlet extends HttpServlet {
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
+        out.println("<meta charset=\"UTF-8\">");
         out.println("<link rel='stylesheet' href='"+request.getContextPath()+"/Resources/css/StyleForm.css'>");
         out.println("<link href=\"https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Zen+Dots&display=swap\" rel=\"stylesheet\">");
         out.println("</head>");
@@ -42,13 +43,13 @@ public class EditarUsuarioServlet extends HttpServlet {
         out.println("<fieldset>");
         out.println("<input type='hidden' name='idUsuario' value='"+usuario.getCodigo()+"'><br>");
         out.println("<label>Nombre:</label><br>");
-        out.println("<input type='text' name='nombre' value='"+usuario.getNombre()+"'><br>");
+        out.println("<input type='text' name='nombre' value='"+usuario.getNombre()+"' required pattern=\"[A-Za-z]{1,}\" title=\"Porfavor escribir solo letras\"><br>");
         out.println("<label>Nombre de usuario:</label><br>");
-        out.println("<input type='text' name='usuario' value='"+usuario.getNombre_Usuario()+"'><br>");
+        out.println("<input type='text' name='usuario' value='"+usuario.getNombre_Usuario()+"' required pattern=\"[A-Za-z]{1,}\" title=\"Porfavor escribir solo letras\"><br>");
         out.println("<label>Contraseña:</label><br>");
-        out.println("<input type='text' name='contraseña' value='"+usuario.getContraseña()+"'><br>");
+        out.println("<input type='password' name='contraseña' value='"+usuario.getContraseña()+"'><br>");
         out.println("<label>Edad:</label><br>");
-        out.println("<input type='text' name='edad' value='"+usuario.getEdad()+"'><br>");
+        out.println("<input type='number' min='1' name='edad' value='"+usuario.getEdad()+"' required><br>");
         out.println("<label>Sexo:</label><br>");
         out.println("<input type='text' name='sexo' value='"+usuario.getSexo()+"'><br>");
         out.println("</fieldset>");

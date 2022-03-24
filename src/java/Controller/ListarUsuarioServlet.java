@@ -27,11 +27,15 @@ public class ListarUsuarioServlet extends HttpServlet {
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
-        out.println("<link rel='stylesheet' href='"+request.getContextPath()+"/Resources/css/Style.css'");
+        out.println("<meta charset=\"UTF-8\">");
+//        out.println("");
+        out.println("<link rel='stylesheet' href='"+request.getContextPath()+"/Resources/css/StyleForm.css'>");
+        out.println("<link href=\"https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Zen+Dots&display=swap\" rel=\"stylesheet\">");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>Servlet</h1>");
-        out.println("<table border='2'>");
+        out.println("<section class=\"forma\">");
+        out.println("<h1 class='titulo'>Usuarios registrados</h1>");
+        out.println("<table class='center'>");
         out.println("<tr>");
         out.println("<th>Codigo</th>");
         out.println("<th>Nombre</th>");
@@ -71,8 +75,9 @@ public class ListarUsuarioServlet extends HttpServlet {
                     + "}\n"
                     + "</script>");
         }
+        out.println("</section>");
         out.println("</tbody>");
-        out.println("</table>");
+        out.println("</table>");       
         out.println("</body>");
         out.println("</html>");
     }

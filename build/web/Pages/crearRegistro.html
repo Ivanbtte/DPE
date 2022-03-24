@@ -18,18 +18,18 @@ Descripción: Pagina para crear registro
                 <fieldset>
                     <input type='hidden' name='idUsuario' value=''><br>
                     <label>Nombre:</label><br>
-                    <input type='text' name='nombre' value=''><br>
+                    <input type='text' name='nombre' value=''required pattern="[A-Za-z]{1,}" title="Porfavor escribir solo letras"><br>
                     <label>Nombre de usuario:</label><br>
-                    <input type='text' name='usuario' value=''><br>
+                    <input type='text' name='usuario' value=''required pattern="[A-Za-z]{1,}" title="Porfavor escribir solo letras"><br>
                     <label>Contraseña:</label><br>
-                    <input type='text' name='contraseña' value=''><br>
+                    <input type='password' name='contraseña' value=''required><br>
                     <label>Edad:</label><br>
-                    <input type='text' name='edad' value=''><br>
+                    <input type='number' min='1' name='edad' value=''required><br>
                     <label>Sexo:</label><br>
-                    <input type="radio" id="hombre" name="sexo"         value="Hombre">
+                    <input type="radio" id="hombre" name="sexo" value="Hombre" required>
                     <label for="sexo">Hombre</label><br>
-                    <input type="radio" id="mujer" name="sexo"         value="Mujer">
-                    <label for="Clan">Mujer</label><br>
+                    <input type="radio" id="mujer" name="sexo"         value="Mujer" required>
+                    <label for="sexo">Mujer</label><br>
                 </fieldset>
                 <input type="submit" value='Guardar'>
             </form>

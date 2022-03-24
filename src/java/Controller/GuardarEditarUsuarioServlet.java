@@ -27,7 +27,7 @@ public class GuardarEditarUsuarioServlet extends HttpServlet {
         int edad= Integer.parseInt(request.getParameter("edad"));
         u.setCodigo(request.getParameter("idUsuario"));
         u.setContraseña(request.getParameter("contraseña"));
-        u.setEdad(20);
+        u.setEdad(edad);
         u.setNombre(request.getParameter("nombre"));
         u.setNombre_Usuario(request.getParameter("usuario"));
         u.setSexo(request.getParameter("sexo"));
