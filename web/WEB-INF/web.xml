@@ -4,9 +4,49 @@
         <servlet-name>ListarUsuarioServlet</servlet-name>
         <servlet-class>controller.ListarUsuarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EliminarUsuarioServlet</servlet-name>
+        <servlet-class>controller.EliminarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditarUsuarioServlet</servlet-name>
+        <servlet-class>controller.EditarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarEditarUsuarioServlet</servlet-name>
+        <servlet-class>controller.GuardarEditarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarCrearServlet</servlet-name>
+        <servlet-class>controller.GuardarCrearServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GuardarCrearUsuarioServlet</servlet-name>
+        <servlet-class>controller.GuardarCrearUsuarioServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ListarUsuarioServlet</servlet-name>
         <url-pattern>/ListarUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EliminarUsuarioServlet</servlet-name>
+        <url-pattern>/EliminarUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditarUsuarioServlet</servlet-name>
+        <url-pattern>/EditarUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarEditarUsuarioServlet</servlet-name>
+        <url-pattern>/GuardarEditarUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCrearServlet</servlet-name>
+        <url-pattern>/GuardarCrearServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GuardarCrearUsuarioServlet</servlet-name>
+        <url-pattern>/GuardarCrearUsuarioServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

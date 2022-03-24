@@ -5,7 +5,3 @@ Fecha actualización: 18/03/2022
 Descripción: Se aplica un estilo de cursos a la tabla.
 
  */ 
-table tr:hover{
-    background-color:lightblue;
-    cursor: pointer;
-}

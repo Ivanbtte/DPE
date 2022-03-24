@@ -146,6 +146,7 @@ public class UsuarioModelImpl implements IUsuarioModel {
         u.setSexo("Masculino");
         UsuarioModelImpl m = new UsuarioModelImpl();
         m.crearRegistro(u);
+        m.obtenerRegistros();
 
     }
 
