@@ -10,21 +10,42 @@ Descripción: Pagina para crear registro
         <meta charset="UTF-8">
         <link rel='stylesheet' href='../Resources/css/StyleForm.css'>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Zen+Dots&display=swap" rel="stylesheet">
+         <link rel='stylesheet' href='../Resources/css/principal.css'>
+        <link rel='stylesheet' href='../Resources/css/StyleFooter.css'>
+        <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        
+                <header>
+
+            <a href="#" class="logo">Deportivo Exuberante</a>
+            <input type="checkbox" id="menu-bar">
+            <label for="menu-bar"> Menu</label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Principal</a></li>
+                    <li><a href="crearRegistro.html">Crear</a></li>
+                    <li><a href="../ListarUsuarioServlet">Listar</a></li>
+                    <li><a href="../ListarUsuarioServlet">Editar</a></li>
+                    <li><a href="../ListarUsuarioServlet">Eliminar</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                </ul>
+            </nav>
+        </header>
+        
         <section class="forma">
             <h1 class=titulo>Registrar usuario</h1>
             <form action='../GuardarCrearUsuarioServlet' method='POST'>
                 <fieldset>
                     <input type='hidden' name='idUsuario' value=''><br>
                     <label>Nombre:</label><br>
-                    <input type='text' name='nombre' value=''required pattern="[A-Za-z]{1,}" title="Porfavor escribir solo letras"><br>
+                    <input type='text' name='nombre' value='' required pattern="[A-Za-z]{1,}" title="Porfavor escribir solo letras"><br>
                     <label>Nombre de usuario:</label><br>
-                    <input type='text' name='usuario' value=''required pattern="[A-Za-z]{1,}" title="Porfavor escribir solo letras"><br>
+                    <input type='text' name='usuario' value='' required pattern="[A-Za-z]{1,}" title="Porfavor escribir solo letras"><br>
                     <label>Contraseña:</label><br>
-                    <input type='password' name='contraseña' value=''required><br>
+                    <input type='password' name='contraseña' value='' required><br>
                     <label>Edad:</label><br>
-                    <input type='number' min='1' name='edad' value=''required><br>
+                    <input type='number' min='1' name='edad' value='' required><br>
                     <label>Sexo:</label><br>
                     <input type="radio" id="hombre" name="sexo" value="Hombre" required>
                     <label for="sexo">Hombre</label><br>
@@ -34,5 +55,47 @@ Descripción: Pagina para crear registro
                 <input type="submit" value='Guardar'>
             </form>
         </section>
+        
+         <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+         <div class="footer">
+            <footer class="pie-pagina">
+                <div class="grupo-1">
+                    <div class="box">
+                        <figure>
+                            <a href="#">
+                                <img src="../Resources/Img/logo.png" alt="Logo">
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="box">
+                        <h2>SOBRE NOSOTROS</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+                    </div>
+                    <div class="box">
+                        <h2>SIGUENOS</h2>
+                        <div class="red-social">
+                            <a href="#" class="fa fa-facebook"></a>
+                            <a href="#" class="fa fa-instagram"></a>
+                            <a href="#" class="fa fa-twitter"></a>
+                            <a href="#" class="fa fa-youtube"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grupo-2">
+                    <small>&copy; 2021 <b>DPE</b> - Todos los Derechos Reservados.</small>
+                </div>
+            </footer>
+        </div>
     </body>
 </html>

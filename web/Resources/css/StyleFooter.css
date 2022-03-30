@@ -1,0 +1,240 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+section.forma{
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 1px 1px 10px #ccc;
+  padding: 0px 10px;
+  background-color: #fff;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  width: 33%;
+  float: left;
+  
+}
+.text {
+  background-color: #800080;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+.image {
+  opacity: 1;
+  display: block;
+  width: 30%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  box-shadow: 3px 3px 10px #ccc;
+}
+.image2{
+  max-width: 100%;
+  height: auto;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+  opacity: 0.3;
+}
+
+.container:hover .middle {
+  opacity: 1;
+}
+.options{
+  position: relative;
+  width: 33%;
+  float: left;
+  text-align: center;
+  font-family: 'Zen Dots', sans-serif;
+}
+.lista{
+  color: black;
+  font-size: 30px;
+  text-decoration: none;
+}
+.lista: hover{
+  color: #800080;
+}
+body{
+    min-height: 100vh;
+     background: #fff url("https://i.pinimg.com/originals/e9/8c/e1/e98ce15eaa7db7faacb87c91bb6fd418.jpg");
+/*    background: white;*/
+    background-size: cover;
+    background-position: center;
+}
+header{
+    
+    top: 0; left: 0; right: 0;
+    background: #0d2033;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    padding: 20px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo{
+    font-weight: bolder;
+    font-size: 25px;
+    color: white;
+}
+
+header .navbar ul{
+    list-style: none;
+}
+
+header .navbar ul li{
+    position: relative;
+    float: left;
+}
+
+header .navbar ul li a{
+    font-size: 20px;
+    padding: 20px;
+    color: white;
+    display: block;
+}
+
+header .navbar ul li a:hover{
+    background: gray;
+    color: wheat;
+}
+
+#menu-bar{
+    display: none;
+}
+
+header label{
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width:991px){
+    header{
+        padding: 20px;
+    }
+    
+    header label{
+        display: initial;
+    }
+    
+    header .navbar{
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: #fff;
+        border-top: 1px solid rgba(0,0,0,.1);
+        
+    }
+    
+    header .navbar ul li{
+        width:100% 
+    }
+    
+    header .navbar ul li ul{
+        position: relative;
+        width: 100%;
+    }
+    
+    #menu-bar:checked ~ .navbar{
+        display: initial;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+/*:::::Pie de Pagina*/
+.pie-pagina{
+    width: 100%;
+    background-color: #900C3F  ;
+	bottom: 0;
+}
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap:50px;
+    padding: 45px 0px;
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 250px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+}
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+.pie-pagina .grupo-2{
+    background-color: #0a1a2a;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap:30px;
+        padding: 35px 0px;
+    }
+  .container {
+    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .options{
+    display:none;
+  }
+  
+}
+
