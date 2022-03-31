@@ -44,12 +44,12 @@ public class ListarUsuarioServlet extends HttpServlet {
             "<label for='menu-bar'> Menu</label>"+
             "<nav class='navbar'>"+
                 "<ul>"+
-                    "<li><a href=index.html'>Principal</a></li>"+
-                    "<li><a href='crearRegistro.html'>Crear</a></li>"+
+                    "<li><a href='"+request.getContextPath()+"/Pages/index.html'>Principal</a></li>"+
+                    "<li><a href='"+request.getContextPath()+"/Pages/crearRegistro.html'>Crear</a></li>"+
                     "<li><a href='ListarUsuarioServlet'>Listar</a></li>"+
                     "<li><a href='ListarUsuarioServlet'>Editar</a></li>"+
                     "<li><a href='ListarUsuarioServlet'>Eliminar</a></li>"+
-                    "<li><a href='#'>Acerca de</a></li>"+
+                    "<li><a href='"+request.getContextPath()+"/Pages/AcercaDe.html'>Acerca de</a></li>"+
                 "</ul>"+
             "</nav>"+
         "</header>");
